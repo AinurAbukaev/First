@@ -1,0 +1,3 @@
+﻿  omega.cpp
+c:\users\айнур\source\repos\omega\omega\list.h(96): warning C4715: List<Patient>::find: значение возвращается не при всех путях выполнения
+  omega.vcxproj -> C:\Users\Айнур\source\repos\omega\Debug\omega.exe
