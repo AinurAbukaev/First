@@ -1,0 +1,3 @@
+Ainur Abukaev 19 male Kumertau 2 
+Ivan Ivanov 18 male Moscow 10 
+Elsa Jean 22 female Ohio 1000
