@@ -1,0 +1,127 @@
+#include "pch.h"
+#include <iostream>
+#include <string>
+#include <list>
+#include <sstream>
+#include <fstream>
+
+
+
+
+int Hash(std::string str) {
+	int sum=0;
+	if (str.size() % 2 != 0) {
+		str += 'w';
+	}
+	for (int i = 0; i < str.size(); i += 2) {
+		int proizv = str[i] * str[i + 1];
+		int delen = str[i] / str[i + 1];
+		sum += proizv;
+		sum += delen;
+	}
+	return sum;
+}
+
+struct Person
+{
+	std::string name;
+	std::string surname;
+};
+
+class DataBase {
+public:
+	Person persons[1000000];
+	void AddPerson(std::string name, std::string surname)
+	{
+		persons[Hash(name)].name = name;
+		persons[Hash(name)].surname = surname;
+		std::cout << "Well done" << std::endl;
+	}
+	void Find(std::string name) {
+		std::cout << persons[Hash(name)].surname;
+	}
+	void AddFromFile() {
+		setlocale(LC_ALL, "RUSSIAN");
+		std::ifstream file("patients.txt");
+		std::string tmp;
+
+		while (getline(file, tmp))
+
+		{
+			std::istringstream iss(tmp);
+			std::string mystring;
+			int i = 0;
+			std::string tmp1;
+			std::string tmp2;
+			while (getline(iss, mystring, '\t')) {
+				if (i == 0) {
+					tmp1 = mystring;
+				}
+				if (i == 1) {
+					tmp2 = mystring;
+				}
+				persons.AddPerson(tmp1, tmp2);
+				i++;
+			}
+
+		}
+	}
+	}
+
+};
+
+void choice() {
+	DataBase db;
+	string name;
+	string surname;
+	for (;;)
+	{
+		std::cout << "1 - add a person;" << std::endl << "2 - find surname;" << std::endl << "3 - add person from file" << std::endl;
+		int choice = 0;
+		std::cin >> choice;
+		int tmp = 0;
+		switch (choice)
+		{
+		case 1:
+			std::cout << "Enter the name, surname" << std::endl;
+			std::cin >> name >> surname;
+			db.AddPerson(name, surname);
+			system("pause");
+			break;
+		case 2:
+			std::cout << "Enter the name" << std::endl;
+			std::cin >> name;
+			system("pause");
+			break;
+
+		case 3:
+			db.AddFromFile();
+			system("pause");
+			break;
+
+
+		default:
+			std::cout << "Sorry, it is impossible" << std::endl;
+			system("pause");
+			break;
+
+
+		}
+
+	}
+}
+
+
+
+
+
+
+
+
+
+
+int main()
+{
+	choice();	
+	return 0;
+}
