@@ -1,0 +1,4 @@
+﻿  2 project.cpp
+c:\users\айнур\source\repos\2 project\2 project\2 project.cpp(15): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\айнур\source\repos\2 project\2 project\2 project.cpp(22): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+  2 project.vcxproj -> C:\Users\Айнур\source\repos\2 project\Debug\2 project.exe
